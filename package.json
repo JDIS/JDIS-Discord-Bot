@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/JDIS/JDIS-Discord-Bot/issues"
   },
-  "homepage": "https://github.com/JDIS/JDIS-Discord-Bot#readme"
+  "homepage": "https://github.com/JDIS/JDIS-Discord-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "enmap": "^5.8.0",
+    "fs": "0.0.1-security"
+  }
 }
