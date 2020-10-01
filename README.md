@@ -91,7 +91,7 @@ Dans certains cas, vous allez devoir generer de faux évènements pour tester vo
 ```javascript
 client.emit('guildMemberAdd', member);
 ```
-Voici également une solution facile pour trouvé le l'objet membre de l'utilisateur qui effectué la commande de test.
+Voici également une solution facile pour trouver le l'objet membre de l'utilisateur qui effectué la commande de test.
 ```javascript
 const member = message.channel.members.filter(user => user.id === message.author.id);
 ```
@@ -99,4 +99,4 @@ const member = message.channel.members.filter(user => user.id === message.author
 Nous recevons un client, le message, et une liste d'arguments. Nous utilisons ensuite l'objet message que nous avons reçu pour récupérer le channel courant et envoyer un message sur ce dernier. Finalement, on laisse un catch pour s'assurer de capturer une erreur et l'afficher en console dans le cas d'un retour invalide de l'API. (Par exemple channel.send() qui devient deprecated après une mise-à-jour.)
 
 ---
-Updated 30/09/2020
+Updated 01/10/2020
