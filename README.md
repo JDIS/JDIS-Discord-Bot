@@ -3,7 +3,7 @@
 ## Guide des contributeurs
 
 ## Comment commencer à développer (Instuctions Windows 10)
-1. Dans github, cliquer sur fork.
+1. Dans github, cliquer sur fork
 1. Installer git (https://git-scm.com/downloads)
 2. Installer Python (https://www.python.org/downloads/)
 3. Après l'installation, réexecuter l'exe et aller dans Modify->Next et cocher Add Python to environment variables
@@ -25,7 +25,7 @@
 	"prefix": "!"
 }
 
-15. Dans "General information" de votre bot, copier le client ID.
+15. Dans "General information" de votre bot, copier le client ID
 16. Aller sur ce site (https://discordapi.com/permissions.html)
 17. Cocher Administrator et copier votre client ID
 18. Cliquer sur le link
