@@ -22,7 +22,7 @@ Acceuillir les nouveaux membres au discord.
 - Installer NodeJS sur votre machine si ce n'est pas déjà fait. (<https://nodejs.org/en/download/>)
 - Faire les manipulations de la section "Création d'une application de test Discord"
 - Faire les manipulations de la section "Installation Locale"
-- Dans cmd, aller dans le projet et faites "node ."
+- Dans cmd, aller dans le projet et faites ``node .``
 - Le bot devrait démarer
 - Aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
 - Voilà!
