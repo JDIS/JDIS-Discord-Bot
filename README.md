@@ -1,7 +1,6 @@
 # Le bot discord des Jeux et Défis informatiques de Sherbrooke
 
 ## Guide des contributeurs
----
 
 ## Table des matières  
 #### Installation
