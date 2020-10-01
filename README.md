@@ -22,7 +22,7 @@ Acceuillir les nouveaux membres au discord.
 - Installer NodeJS sur votre machine si ce n'est pas déjà fait. (<https://nodejs.org/en/download/>)
 - Faire les manipulations de la section "Création d'une application de test Discord"
 - Faire les manipulations de la section "Installation Locale"
-- Dans cmd, aller dans le projet et faites "node ."
+- Dans cmd, aller dans le projet et faites ``node .``
 - Le bot devrait démarer
 - Aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
 - Voilà!
@@ -63,7 +63,7 @@ Voici les étapes à suivre:
 Dans ces exemples, nous utilisons le module Discord.js. 
 Vous pouvez trouver la documentation sur le site suivant: <https://discord.js.org/>
 
-##### Commande de base
+#### Commande de base
 Prenons la commande **ping**, définie dans le répertoire *examples* et analysons cette dernière.
 ```javascript
 exports.run = (client, message, args) => {
@@ -71,7 +71,32 @@ exports.run = (client, message, args) => {
         .catch(console.error);
 }
 ```
+
+#### Commande demandant des permissions
+Certaines commandes vont demandé l'utilisation de permissions spécifiques, voici donc un exemple de safety net.
+```javascript
+    if (!message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES")) 
+    {
+        message.channel.send("Sorry, you don't have the permission to execute the command \"" + message.content + "\"");
+        return;
+    } 
+    else if (!message.channel.permissionsFor(client.user).has("MANAGE_MESSAGES")) {
+        message.channel.send("Sorry, I don't have the permission to execute the command \"" + message.content + "\"");
+        return;
+    }
+```
+
+#### Generer des faux events
+Dans certains cas, vous allez devoir generer de faux évènements pour tester votre code, voici un exemple simple sur comment faire.
+```javascript
+client.emit('guildMemberAdd', member);
+```
+Voici également une solution facile pour trouver le l'objet membre de l'utilisateur qui effectué la commande de test.
+```javascript
+const member = message.channel.members.filter(user => user.id === message.author.id);
+```
+
 Nous recevons un client, le message, et une liste d'arguments. Nous utilisons ensuite l'objet message que nous avons reçu pour récupérer le channel courant et envoyer un message sur ce dernier. Finalement, on laisse un catch pour s'assurer de capturer une erreur et l'afficher en console dans le cas d'un retour invalide de l'API. (Par exemple channel.send() qui devient deprecated après une mise-à-jour.)
 
 ---
-Updated 30/09/2020
+Updated 01/10/2020
