@@ -1,10 +1,6 @@
 ﻿# Le bot discord des Jeux et Défis informatiques de Sherbrooke
 
 ## Guide des contributeurs
-
-## Features désirés
-Acceuillir les nouveaux membres au discord.
-
 ## Table des matières  
 #### Installation
 - ##### [Installation des dépendances](#installation_des_dependances)
