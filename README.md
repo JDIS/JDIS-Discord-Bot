@@ -1,16 +1,18 @@
 ﻿# Le bot discord des Jeux et Défis informatiques de Sherbrooke
 
 ## Guide des contributeurs
----
 
 ## Features désirés
 Acceuillir les nouveaux membres au discord.
 
 ## Table des matières  
-- ##### [Installation des dépendances](#Installation_des_dependances)
-- ##### [Création de l'application de test](#Créer_application_de_test_Discord)
-- ##### [Installation Locale](#Installation_Locale)
-    
+#### Installation
+- ##### [Installation des dépendances](#installation_des_dependances)
+- ##### [Création de l'application de test](#créer_application_de_test_discord)
+- ##### [Installation Locale](#installation_locale)
+
+#### Exemples de code
+- ##### [Commande de base](#command_de_base)
 ---
 ### Installation des dépendances
 ##### Instructions Windows 10
@@ -49,9 +51,27 @@ Voici les étapes à suivre:
 3. Faite la commande "git clone <le lien de votre projet forké que vous pouvez récuper avec le bouton vert Code>"
 4. Faire un ``npm install`` à la racine du projet pour installer les dépendences.
 5. Créer le fichier config.json à la racine du projet avec la structure suivante:
-``{
-    "token": Soit le token pour vous connecter au bot.
-    "prefix": Soit le préfix des commandes.
-}`` 
+```json
+{
+    "token": "Soit le token pour vous connecter au bot.",
+    "prefix": "Soit le préfix des commandes."
+}
+```
+
+---
+### Exemples de code
+Dans ces exemples, nous utilisons le module Discord.js. 
+Vous pouvez trouver la documentation sur le site suivant: <https://discord.js.org/>
+
+##### Commande de base
+Prenons la commande **ping**, définie dans le répertoire *examples* et analysons cette dernière.
+```javascript
+exports.run = (client, message, args) => {
+    message.channel.send("pong!")
+        .catch(console.error);
+}
+```
+Nous recevons un client, le message, et une liste d'arguments. Nous utilisons ensuite l'objet message que nous avons reçu pour récupérer le channel courant et envoyer un message sur ce dernier. Finalement, on laisse un catch pour s'assurer de capturer une erreur et l'afficher en console dans le cas d'un retour invalide de l'API. (Par exemple channel.send() qui devient deprecated après une mise-à-jour.)
+
 ---
 Updated 30/09/2020
