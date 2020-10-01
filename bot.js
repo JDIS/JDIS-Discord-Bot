@@ -20,6 +20,7 @@ client.commands = new Enmap();
 
 fs.readdir("./commands/examples/", (err, files) => {
     if (err) return console.error(err);
+    console.log("Starting bot...");
     files.forEach(file => {
         if (!file.endsWith(".js")) return;
         let props = require(`./commands/examples/${file}`);
@@ -27,6 +28,7 @@ fs.readdir("./commands/examples/", (err, files) => {
         console.log(`Loading : !${commandName}`);
         client.commands.set(commandName, props);
     });
+    console.log("Bot started!");
 });
 
 client.on('error', console.error);
