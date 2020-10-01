@@ -54,7 +54,8 @@ Voici les étapes à suivre:
 ```json
 {
     "token": "Soit le token pour vous connecter au bot.",
-    "prefix": "Soit le préfix des commandes."
+    "prefix": "Soit le préfix des commandes.",
+    "debug": true
 }
 ```
 
