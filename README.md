@@ -63,7 +63,7 @@ Voici les étapes à suivre:
 Dans ces exemples, nous utilisons le module Discord.js. 
 Vous pouvez trouver la documentation sur le site suivant: <https://discord.js.org/>
 
-##### Commande de base
+#### Commande de base
 Prenons la commande **ping**, définie dans le répertoire *examples* et analysons cette dernière.
 ```javascript
 exports.run = (client, message, args) => {
@@ -72,7 +72,7 @@ exports.run = (client, message, args) => {
 }
 ```
 
-##### Commande demandant des permissions
+#### Commande demandant des permissions
 Certaines commandes vont demandé l'utilisation de permissions spécifiques, voici donc un exemple de safety net.
 ```javascript
     if (!message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES")) 
@@ -86,7 +86,7 @@ Certaines commandes vont demandé l'utilisation de permissions spécifiques, voi
     }
 ```
 
-##### Generer des faux events
+#### Generer des faux events
 Dans certains cas, vous allez devoir generer de faux évènements pour tester votre code, voici un exemple simple sur comment faire.
 ```javascript
 client.emit('guildMemberAdd', member);
