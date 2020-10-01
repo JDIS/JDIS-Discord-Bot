@@ -1,46 +1,57 @@
 ﻿# Le bot discord des Jeux et Défis informatiques de Sherbrooke
 
 ## Guide des contributeurs
-
-## Comment commencer à développer (Instuctions Windows 10)
-1. Dans github, cliquer sur fork
-1. Installer git (https://git-scm.com/downloads)
-2. Installer Python (https://www.python.org/downloads/)
-3. Après l'installation, réexecuter l'exe et aller dans Modify->Next et cocher Add Python to environment variables
-2. Dans l'application cmd, aller dans le folder où vous voulez cloner le projet
-3. faite la commande "git clone <le lien de votre projet forké que vous pouvez récuper avec le bouton vert Code>"
-4. Installer la version Current de Node.js (https://nodejs.org/en/download/)
-5. Dans cmd, aller dans le dossier que vous avez précédemment cloné
-7. Faire la commande "npm install discord.js --save"
-8. Aller sur ce site (https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications)
-9. Se connecter avec son compte Discord
-10. Faire New Application et entrer un nom
-11. Dans l'onglet Bot, faire Add Bot
-12. Cliquer sur "Click to Reveal Token" sur la page de votre bot
-13. Copier le token
-14. Créer un fichier config.json qui ressemble avec un contenu ressemblant à ceci:
-
-{
-	"token": "Coller votre token ici",
-	"prefix": "!"
-}
-
-15. Dans "General information" de votre bot, copier le client ID
-16. Aller sur ce site (https://discordapi.com/permissions.html)
-17. Cocher Administrator et copier votre client ID
-18. Cliquer sur le link
-19. Ajouter le bot à un serveur (créé au préalable par vous)
-20. Dans cmd, aller dans le projet et faites "node ."
-21. Le bot devrait démarer
-22. Aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
-23. Voilà!
+---
 
 ## Features désirés
 Acceuillir les nouveaux membres au discord.
 
-Jouer de la musique.
+## Table des matières  
+- ##### [Installation des dépendances](#Installation_des_dependances)
+- ##### [Création de l'application de test](#Créer_application_de_test_Discord)
+- ##### [Installation Locale](#Installation_Locale)
+    
+---
+### Installation des dépendances
+##### Instructions Windows 10
+- Installer Git sur votre machine si ce n'est pas déjà fait. (<https://git-scm.com/downloads/>)
+- Installer Python sur votre machine si ce n'est pas déjà fait. (<https://www.python.org/downloads/>)
+- Après l'installation de Python, réexecuter l'exe et aller dans Modify->Next et cocher Add Python to environment variables
+- Installer NodeJS sur votre machine si ce n'est pas déjà fait. (<https://nodejs.org/en/download/>)
+- Faire les manipulations de la section "Création d'une application de test Discord"
+- Faire les manipulations de la section "Installation Locale"
+- Dans cmd, aller dans le projet et faites "node ."
+- Le bot devrait démarer
+- Aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
+- Voilà!
 
-Poster des memes.
+##### Instructions MacOS
 
-Basher sur le monde qui parlent de stéganographie. La steg c'est non.
+##### Instructions Linux
 
+
+### Création d'une application de test Discord
+Avant de soumettre une pullrequest, il va bien falloir tester votre code. Pour cela, vous allez avoir besoin d'une instance de bot qui vous appartient. Pour des raisons évidentes, nous n'allons pas partager le token d'identification du bot JDIS, mais rien ne vous empêche de faire votre propre bot pour tester vos features dans un serveur qui vous appartient.
+Comment faire me dîtes-vous? Suivez simplement ces quelques instructions:
+
+Pour créer un bot, vous devez créer une application sur le site officiel de discord à l'aide de votre compte.
+Voici les étapes à suivre:
+1. Aller sur <https://discord.com/developers/applications> et créer une application.
+2. Sur la page de l'application, aller sur l'onglet Bot dans le menu contextuel de gauche.
+3. Ajouter un bot.
+4. Configurer le bot avec un nom et avatar qui vous plait, et copier le token dans le fichier [config.json](#config.json).
+5. Pour inviter le bot dans votre serveur de test, allez dans l'onglet OAuth2 du menu contextuel. Ensuite, choisisser l'option bot dans les scopes. Enfin, donner les permissions nécéssaires au bot pour les fonctionnalités que vous voulez implémenter. Copier ensuite l'URL à l'écran dans un nouvel onglet et suivre les instructions données.
+
+
+### Installation Locale
+1. Créer une fork du repertoire JDIS.
+2. En command line, aller dans le folder où vous voulez cloner le projet
+3. Faite la commande "git clone <le lien de votre projet forké que vous pouvez récuper avec le bouton vert Code>"
+4. Faire un ``npm install`` à la racine du projet pour installer les dépendences.
+5. Créer le fichier config.json à la racine du projet avec la structure suivante:
+``{
+    "token": Soit le token pour vous connecter au bot.
+    "prefix": Soit le préfix des commandes.
+}`` 
+---
+Updated 30/09/2020
