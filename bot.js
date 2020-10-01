@@ -29,5 +29,16 @@ fs.readdir("./commands/examples/", (err, files) => {
     });
 });
 
+fs.readdir("./commands/contributors/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./commands/contributors/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Loading command: ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
+
 client.on('error', console.error);
 client.login(config.token);
