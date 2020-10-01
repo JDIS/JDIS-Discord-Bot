@@ -86,6 +86,13 @@ Certaines commandes vont demandé l'utilisation de permissions spécifiques, voi
     }
 ```
 
+##### Generer des faux events
+Dans certains cas, vous allez devoir generer de faux évènements pour tester votre code, voici un exemple simple sur comment faire.
+```javascript
+client.emit('guildMemberAdd', member);
+```
+À noter qu'ici, le client est l'instance du bot, et le membre est un objet valide, par exemple la personne qui a fait la commande de test.
+
 Nous recevons un client, le message, et une liste d'arguments. Nous utilisons ensuite l'objet message que nous avons reçu pour récupérer le channel courant et envoyer un message sur ce dernier. Finalement, on laisse un catch pour s'assurer de capturer une erreur et l'afficher en console dans le cas d'un retour invalide de l'API. (Par exemple channel.send() qui devient deprecated après une mise-à-jour.)
 
 ---
