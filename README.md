@@ -71,6 +71,21 @@ exports.run = (client, message, args) => {
         .catch(console.error);
 }
 ```
+
+##### Commande demandant des permissions
+Certaines commandes vont demandé l'utilisation de permissions spécifiques, voici donc un exemple de safety net.
+```javascript
+    if (!message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES")) 
+    {
+        message.channel.send("Sorry, you don't have the permission to execute the command \"" + message.content + "\"");
+        return;
+    } 
+    else if (!message.channel.permissionsFor(client.user).has("MANAGE_MESSAGES")) {
+        message.channel.send("Sorry, I don't have the permission to execute the command \"" + message.content + "\"");
+        return;
+    }
+```
+
 Nous recevons un client, le message, et une liste d'arguments. Nous utilisons ensuite l'objet message que nous avons reçu pour récupérer le channel courant et envoyer un message sur ce dernier. Finalement, on laisse un catch pour s'assurer de capturer une erreur et l'afficher en console dans le cas d'un retour invalide de l'API. (Par exemple channel.send() qui devient deprecated après une mise-à-jour.)
 
 ---
