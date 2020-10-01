@@ -40,8 +40,8 @@ Voici les étapes à suivre:
 4. Créer le fichier config.json à la racine du projet avec la structure suivante:
 ```json
 {
-    "token": Soit le token pour vous connecter au bot.
-    "prefix": Soit le préfix des commandes.
+    "token": "Soit le token pour vous connecter au bot.",
+    "prefix": "Soit le préfix des commandes."
 }
 ```
 
