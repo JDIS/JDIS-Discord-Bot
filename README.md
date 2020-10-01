@@ -21,9 +21,10 @@
 14. Créer un fichier config.json qui ressemble avec un contenu ressemblant à ceci:
 
 {
-	"token": "<Coller votre token ici>",
+	"token": "Coller votre token ici",
 	"prefix": "!"
 }
+
 15. Dans "General information" de votre bot, copier le client ID.
 16. Aller sur ce site (https://discordapi.com/permissions.html)
 17. Cocher Administrator et copier votre client ID
