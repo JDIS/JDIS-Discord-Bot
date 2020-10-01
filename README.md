@@ -1,6 +1,9 @@
-# Le bot discord des Jeux et Défis informatiques de Sherbrooke
+﻿# Le bot discord des Jeux et Défis informatiques de Sherbrooke
 
 ## Guide des contributeurs
+
+## Features désirés
+Acceuillir les nouveaux membres au discord.
 
 ## Table des matières  
 #### Installation
@@ -13,9 +16,19 @@
 ---
 ### Installation des dépendances
 ##### Instructions Windows 10
+- Installer Git sur votre machine si ce n'est pas déjà fait. (<https://git-scm.com/downloads/>)
 - Installer Python sur votre machine si ce n'est pas déjà fait. (<https://www.python.org/downloads/>)
+- Après l'installation de Python, réexecuter l'exe et aller dans Modify->Next et cocher Add Python to environment variables
 - Installer NodeJS sur votre machine si ce n'est pas déjà fait. (<https://nodejs.org/en/download/>)
+- Faire les manipulations de la section "Création d'une application de test Discord"
+- Faire les manipulations de la section "Installation Locale"
+- Dans cmd, aller dans le projet et faites "node ."
+- Le bot devrait démarer
+- Aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
+- Voilà!
+
 ##### Instructions MacOS
+
 ##### Instructions Linux
 
 
@@ -34,9 +47,10 @@ Voici les étapes à suivre:
 
 ### Installation Locale
 1. Créer une fork du repertoire JDIS.
-2. Cloner le répertoire en local.
-3. Faire un ``npm install`` à la racine du projet pour installer les dépendences.
-4. Créer le fichier config.json à la racine du projet avec la structure suivante:
+2. En command line, aller dans le folder où vous voulez cloner le projet
+3. Faite la commande "git clone <le lien de votre projet forké que vous pouvez récuper avec le bouton vert Code>"
+4. Faire un ``npm install`` à la racine du projet pour installer les dépendences.
+5. Créer le fichier config.json à la racine du projet avec la structure suivante:
 ```json
 {
     "token": "Soit le token pour vous connecter au bot.",
