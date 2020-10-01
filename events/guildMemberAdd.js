@@ -1,5 +1,4 @@
 module.exports = (client,member) => {
-  console.log(member.user);
   const message= ":jdis:Hello world "+ member.toString()+"!:jdis:\n"+
   "Bienvenue sur le serveur Discord de JDIS. Ici, tu pourra échanger sur différent sujet en rapport avec la programmation, la sécurité et tout autre"+
   "sujet liée à l'informatique ou l'électronique.\n"+
