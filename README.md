@@ -95,4 +95,4 @@ const member = message.channel.members.filter(user => user.id === message.author
 ```
 
 ---
-Updated 01/10/2020
+Updated 03/10/2020
