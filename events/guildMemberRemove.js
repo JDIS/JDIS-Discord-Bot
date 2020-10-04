@@ -13,7 +13,7 @@ module.exports = (client, member) => {
 			.setTitle(":jdis:Goodbye world!:jdis:\n")
 			.setColor(0xff0000)
 			.setDescription(
-				"Bonjour "+ member.user.username + ", nous sommes triste de vous voir quitter le serveur Discord de JDIS.\n" +
+				"Bonjour "+ member.toString() + ", nous sommes triste de vous voir quitter le serveur Discord de JDIS.\n" +
 					"Nous espérons que vous avez passé de merveilleux moments parmis notre communauté et espérons votre retour!\n"
 			).setFooter("Que l'apprentissage soit la force.")
 			.setThumbnail("https://avatars0.githubusercontent.com/u/15794364");
