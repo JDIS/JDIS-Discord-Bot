@@ -8,7 +8,7 @@
 * [Installation Locale](#installation-locale)
 
 #### Exemples de code
-- ##### [Exemples de code](#exemples-de-code-2)
+* [Exemples de code](#exemples-de-code-2)
 ---
 ### Installation des dépendances
 ##### Instructions Windows 10
