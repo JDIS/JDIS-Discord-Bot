@@ -3,12 +3,12 @@
 ## Guide des contributeurs
 ## Table des matières  
 #### Installation
-- * [Installation des dépendances](#installation_des_dependances)
-- * [Création d'une application de test Discord](#créer_application_de_test_discord)
-- * [Installation Locale](#installation_locale)
+* [Installation des dépendances](#installation-des-dépendances)
+* [Création d'une application de test Discord](#création-dune-application-de-tests-discord)
+* [Installation Locale](#installation-locale)
 
 #### Exemples de code
-- ##### [Commande de base](#command_de_base)
+- ##### [Exemples de code](#exemples-de-code-1)
 ---
 ### Installation des dépendances
 ##### Instructions Windows 10
@@ -28,7 +28,7 @@
 ##### Instructions Linux
 
 
-### Création d'une application de test Discord
+### Création d'une application de tests Discord
 Avant de soumettre une pullrequest, il va bien falloir tester votre code. Pour cela, vous allez avoir besoin d'une instance de bot qui vous appartient. Pour des raisons évidentes, nous n'allons pas partager le token d'identification du bot JDIS, mais rien ne vous empêche de faire votre propre bot pour tester vos features dans un serveur qui vous appartient.
 Comment faire me dîtes-vous? Suivez simplement ces quelques instructions:
 
@@ -95,4 +95,4 @@ const member = message.channel.members.filter(user => user.id === message.author
 ```
 
 ---
-Updated 03/10/2020
+Updated 05/10/2020
