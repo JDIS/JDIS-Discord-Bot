@@ -3,9 +3,9 @@
 ## Guide des contributeurs
 ## Table des matières  
 #### Installation
-- ##### [Installation des dépendances](#installation_des_dependances)
-- ##### [Création de l'application de test](#créer_application_de_test_discord)
-- ##### [Installation Locale](#installation_locale)
+- * [Installation des dépendances](#installation_des_dependances)
+- * [Création d'une application de test Discord](#créer_application_de_test_discord)
+- * [Installation Locale](#installation_locale)
 
 #### Exemples de code
 - ##### [Commande de base](#command_de_base)
