@@ -58,7 +58,7 @@ module.exports = (client, member) => {
 						)
 						.setAuthor(
 							client.user.username + "#" + client.user.discriminator,
-							client.user.avatarURL
+							client.user.displayAvatarURL()
 						)
 						.setFooter(member.user)
 						.setTimestamp(Date.now())
