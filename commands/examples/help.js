@@ -10,7 +10,9 @@ exports.run = (client, message, args) => {
 			pref + "flip\n" +
 			pref + "ping\n" +
 			pref + "meme\n" +
-			pref + "roll\n\n"),
+			pref + "roll\n\n"+
+			pref + "flag\n"+
+			pref + "nickname\n\n"),
 		(inline = true)
 	);
 	embed.addField(
@@ -20,7 +22,9 @@ exports.run = (client, message, args) => {
 			"Flip une pièce de monnaie\n" +
 			"Pong!\n" +
 			"Affiche un meme au hasard\n" +
-			"Permet de roullé un nombre de dés du type spécifé (ex. 1d6, 3d10). 1d6 par défaut\n"),
+			"Permet de roullé un nombre de dés du type spécifé (ex. 1d6, 3d10). 1d6 par défaut\n"+
+			"Affiche un drapeau au hasard\n"+
+			"Permet de changer son pseudo sur le serveur pour celui spécifié en param.\n"),
 		(inline = true)
 	);
 	const help_message =
