@@ -7,8 +7,9 @@ module.exports = (client, member) => {
 
 	// On ne peux dm un user apres qu'il aie quitter un serveur
 	// Aucun message ne lui est donc envoyé et seul un log server est ajouter
+	const chan = "server-logs";
 	client.channels.cache
-		.find((channel) => channel.name === "server-logs")
+		.find((channel) => channel.name === chan)
 		.send(
 			new Discord.MessageEmbed()
 				.setTitle("Member left the server")
@@ -18,12 +19,12 @@ module.exports = (client, member) => {
 				)
 				.setAuthor(
 					member.user.username + "#" + member.user.discriminator,
-					member.user.avatarURL
+					member.user.displayAvatarURL()
 				)
 				.setFooter(member.user)
 				.setTimestamp(Date.now())
 		)
 		.catch((err2) =>
-			console.log(`[event:guildMemberRemove.js] Channel server-logs non trouvé`)
+			console.log(`[event:guildMemberRemove.js] Channel ${chan} non trouvé`)
 		);
 };
