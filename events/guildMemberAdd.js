@@ -18,7 +18,7 @@ module.exports = (client, member) => {
 					"sujet liée à l'informatique ou l'électronique.\n\n"
 			)
 			.addField(
-        "Announcements",
+				"Announcements",
 				"Il te sera annoncé dans le channel " +
 					member.guild.channels.cache
 						.find((channel) => channel.name === "announcements")
@@ -44,41 +44,52 @@ module.exports = (client, member) => {
 	//envoie le message en dm si possible
 	const dmchan = member.user.createDM(true).catch(console.error);
 	dmchan.then((chan) =>
-		chan.send(message).catch((err)=>
-			(client.channels.cache
-				.find((channel) => channel.name === "server-logs"))
+		chan.send(message).catch((err) =>
+			client.channels.cache
+				.find((channel) => channel.name === "server-logs")
 				.send(
 					new Discord.MessageEmbed()
-				.setTitle("Welcome message not delivred")
-				.setColor(0xffff00)
-				.setDescription("Le membre " +
-				member.user.username +
-				" n'a pas reçus le message de bienvenu. Il ne peux être contacté en DM")
-				.setAuthor(
-					client.user.username + "#" + client.user.discriminator,
-					client.user.avatarURL
+						.setTitle("Welcome message not delivred")
+						.setColor(0xffff00)
+						.setDescription(
+							"Le membre " +
+								member.user.username +
+								" n'a pas reçus le message de bienvenu. Il ne peux être contacté en DM"
+						)
+						.setAuthor(
+							client.user.username + "#" + client.user.discriminator,
+							client.user.avatarURL
+						)
+						.setFooter(member.user)
+						.setTimestamp(Date.now())
 				)
-				.setFooter(member.user)
-				.setTimestamp(Date.now())
-					
-				).then(console.log(`[event:guildMemberAdd.js] ${member.user.username}#${member.user.discriminator} can't be DM`))
-				.catch((err2)=>console.log(`[event:guildMemberAdd.js] Channel server-logs non trouvé`))
+				.then(
+					console.log(
+						`[event:guildMemberAdd.js] ${member.user.username}#${member.user.discriminator} can't be DM`
+					)
+				)
+				.catch((err2) =>
+					console.log(
+						`[event:guildMemberAdd.js] Channel server-logs non trouvé`
+					)
+				)
 		)
 	);
 
-
 	//log qu'un membre a join le server
-	const chan="server-logs";
+	const chan = "server-logs";
 	client.channels.cache
 		.find((channel) => channel.name === chan)
 		.send(
 			new Discord.MessageEmbed()
 				.setTitle("Member join")
 				.setColor(0xffff00)
-				.setDescription("Le membre " + member.user.username + " a rejoins le serveur")
+				.setDescription(
+					"Le membre " + member.user.username + " a rejoins le serveur"
+				)
 				.setAuthor(
 					member.user.username + "#" + member.user.discriminator,
-					member.user.avatarURL
+					member.user.displayAvatarURL()
 				)
 				.setFooter(member.user)
 				.setTimestamp(Date.now())
