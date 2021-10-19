@@ -97,5 +97,4 @@ const member = message.channel.members.filter(user => user.id === message.author
 ```
 
 ---
-
 Mis-à-jour le 11/10/2021
