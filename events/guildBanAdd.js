@@ -1,3 +1,9 @@
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor: 
+ * Description: Event that execute when a user is banned. It write the bannishment message in the server log.
+ */
+
 module.exports = async (client, guild, user) => {
 	const Discord = require("discord.js");
 	

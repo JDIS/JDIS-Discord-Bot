@@ -1,4 +1,10 @@
-exports.run = (client, message, args) => {
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor:
+ * Description: Function that flip a coin
+ */
+
+exports.run = async(client, message, args) => {
 	const Discord = require("discord.js");
 
 	//Envoie l'image gif qui flip un coin et la supprime apres 2.1 sec

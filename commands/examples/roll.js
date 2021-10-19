@@ -1,3 +1,9 @@
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor: Timothy Landry
+ * Description: Function that roll dices.
+ */
+
 exports.run = (client, message, args) => {
 	var fs = require("fs");
 	let input = "help";

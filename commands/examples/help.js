@@ -1,3 +1,9 @@
+/***
+ * Author: Timothy Landry
+ * Contributor: Michael Labrecque [micklabrecque@hotmail.com]
+ * Description: Help function that show possible command and params to use them
+ */
+
 const { MessageEmbed } = require("discord.js");
 
 exports.run = (client, message, args) => {

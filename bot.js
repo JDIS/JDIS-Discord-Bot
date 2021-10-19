@@ -1,3 +1,10 @@
+/***
+ * Author: Timothy Landry
+ * Contributor: 
+ * Description: First file execute when bot is launch. It's the file that log the bot in server
+ *      and map command created by contributors.
+ */
+
 const Discord = require("discord.js");
 const fs = require("fs");
 
