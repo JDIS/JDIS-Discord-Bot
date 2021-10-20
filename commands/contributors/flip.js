@@ -5,40 +5,34 @@
  */
 
 exports.run = async (client, message, args) => {
-  const Discord = require("discord.js");
+	const Discord = require("discord.js");
 
-  //Envoie l'image gif qui flip un coin et la supprime apres 2.1 sec
-  var str = new Discord.MessageEmbed()
-    .setTitle("Coin Flip")
-    .setColor("0xFF0000")
-    .setDescription(message.author.toString())
-    .setImage(client.config.images_Git.flip_coinGif);
+	//Envoie l'image gif qui flip un coin et la supprime apres 2.1 sec
+	var roll = new Discord.MessageEmbed()
+		.setTitle("Coin Flip")
+		.setColor("0xFF0000")
+		.setDescription(message.author.toString())
+		.setImage(client.config.images_Git.flip_coinGif);
 
-  message.channel
-    .send({ embeds: [str] })
-    .then((d_msg) =>
-      setTimeout(() => {
-        d_msg.delete();
-      }, 2100)
-    );
+	var result = new Discord.MessageEmbed()
+		.setTitle("Coin Flip")
+		.setColor("0xFF0000")
+		.setDescription(message.author.toString())
 
-  setTimeout(function () {
-    if (Math.floor(Math.random() * 2) == 0) {
-      //génère un nombre random entre 0 et 1 et vérifie quel est le résultat
-      str = new Discord.MessageEmbed()
-        .setTitle("Coin Flip")
-        .setColor("0xFF0000")
-        .setDescription(message.author.toString())
-        .setImage(client.config.images_Git.coin_pile);
-      choix = 0;
-    } else {
-      str = new Discord.MessageEmbed()
-        .setTitle("Coin Flip")
-        .setColor("0xFF0000")
-        .setDescription(message.author.toString())
-        .setImage(client.config.images_Git.coin_face);
-      choix = 1;
-    }
-    message.channel.send({ embeds: [str] });
-  }, 2500);
+	//génère un nombre random entre 0 et 1 et vérifie quel est le résultat
+	if (Math.floor(Math.random() * 2)) {
+		result.setImage(client.config.images_Git.coin_pile);
+	} else {
+		result.setImage(client.config.images_Git.coin_face);
+	}
+
+	message.channel
+		.send({ embeds: [roll] })
+		.then((d_msg) =>
+			setTimeout(() => {
+				d_msg.delete().then(() => {
+					message.channel.send({ embeds: [result] });
+				});
+			}, 1500)
+		);
 };
