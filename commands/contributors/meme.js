@@ -11,5 +11,5 @@ exports.run = async (client, message, args) => {
     .setTitle(`From /r/${random}`)
     .setURL(`http://reddit.com/r/${random}`)
 
-    message.channel.send(embed);
+    message.channel.send({embeds:[embed]});
 }

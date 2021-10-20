@@ -64,7 +64,7 @@ exports.run = (client, message, args) => {
 		output = `Syntax incorrecte. Utilisez *roll help* pour plus d'informations.`;
 	}
 
-	message.channel.send(output).catch(console.error);
+	message.channel.send({content:output}).catch(console.error);
 	setTimeout(function () {
 		fs.unlink(namef, function (err) {
 			if (err) throw err;

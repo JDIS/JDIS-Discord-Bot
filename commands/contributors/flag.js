@@ -20,6 +20,6 @@ exports.run = async (client, message, args) => {
       .setImage(imageUrl)
       .setTitle("Keep flaging young padawan!")
       .setFooter(`Nice flag ${flagList[flag]}!`);
-    message.channel.send(embed).catch(console.error);
+    message.channel.send({embeds:[embed]}).catch(console.error);
   });
 };

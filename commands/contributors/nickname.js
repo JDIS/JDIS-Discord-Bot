@@ -49,6 +49,6 @@ exports.run = async (client, message, args) => {
 				message.author.username +
 					" n'a pu changer son nickname. Args non spécifié"
 			);
-		chan.send(str);
+		chan.send({embeds:[str]});
 	}
 };
