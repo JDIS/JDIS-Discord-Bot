@@ -2,7 +2,7 @@
  * Author: Timothy Landry
  * Contributor: Michael Labrecque [micklabrecque@hotmail.com]
  * Description: Analyze every message and send message if st[eé]g string is found, return noting if 
- *      the xommand prfix isn't there and execute the correct command if the prefix is present in the 
+ *      the command prefix isn't there and execute the correct command if the prefix is present in the 
  *      message.
  */
 
