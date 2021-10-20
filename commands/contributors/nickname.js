@@ -1,3 +1,9 @@
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor:
+ * Description: Function that change nickname on the server
+ */
+
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
@@ -43,6 +49,6 @@ exports.run = async (client, message, args) => {
 				message.author.username +
 					" n'a pu changer son nickname. Args non spécifié"
 			);
-		chan.send(str);
+		chan.send({embeds:[str]});
 	}
 };

@@ -1,11 +1,27 @@
+/***
+ * Author: Timothy Landry
+ * Contributor: 
+ * Description: First file execute when bot is launch. It's the file that log the bot in server
+ *      and map command created by contributors.
+ */
+
 const Discord = require("discord.js");
 const fs = require("fs");
-
 const Enmap = require("enmap");
-
-const client = new Discord.Client();
 const config = require("./config.json");
+
+const client = new Discord.Client({
+    intents: [Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.GUILD_MESSAGES,
+    Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+    Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.DIRECT_MESSAGES,
+    Discord.Intents.FLAGS.GUILD_BANS,
+    Discord.Intents.FLAGS.GUILD_INVITES]
+});
+
 client.config = config;
+client.commands = new Enmap();
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);
@@ -15,8 +31,6 @@ fs.readdir("./events/", (err, files) => {
         client.on(eventName, event.bind(null, client));
     });
 });
-
-client.commands = new Enmap();
 
 fs.readdir("./commands/examples/", (err, files) => {
     if (err) return console.error(err);

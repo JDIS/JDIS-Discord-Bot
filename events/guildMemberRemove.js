@@ -1,3 +1,9 @@
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor: 
+ * Description: Event that execute when a user left the server. It write the message in the server log.
+ */
+
 module.exports = (client, member) => {
 	const Discord = require("discord.js");
 

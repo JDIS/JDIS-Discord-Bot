@@ -1,3 +1,9 @@
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor: 
+ * Description: Send a welcome DM to the new user.
+ */
+
 module.exports = (client, member) => {
 	const Discord = require("discord.js");
 
@@ -14,8 +20,8 @@ module.exports = (client, member) => {
 			.setColor("0xff0000")
 			.setDescription(
 				"Bienvenue sur le serveur Discord de JDIS.\n\n" +
-					"Ici, tu pourra échanger sur différent sujet en rapport avec la programmation, la sécurité et tout autre " +
-					"sujet liée à l'informatique ou l'électronique.\n\n"
+					"Ici, tu pourra échanger sur différent sujet en rapport avec la programmation, la sécurité et tous autres " +
+					"sujets liés à l'informatique ou l'électronique.\n\n"
 			)
 			.addField(
 				"Announcements",
