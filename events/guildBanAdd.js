@@ -1,6 +1,12 @@
+/***
+ * Author: Michael Labrecque [micklabrecque@hotmail.com]
+ * Contributor: 
+ * Description: Event that execute when a user is banned. It write the bannishment message in the server log.
+ */
+
 module.exports = async (client, guild, user) => {
 	const Discord = require("discord.js");
-	
+
 	console.log(
 		`[event:guildBanAdd.js] ${user.username}#${user.discriminator} ban from ${guild.name}`
 	);
@@ -10,8 +16,8 @@ module.exports = async (client, guild, user) => {
 	const chan = "server-logs";
 	client.channels.cache
 		.find((channel) => channel.name === chan)
-		.send(
-			new Discord.MessageEmbed()
+		.send({
+			embeds: [new Discord.MessageEmbed()
 				.setTitle("Member ban")
 				.setColor(0xffff00)
 				.setDescription("Le membre " + user.username + " a été banni")
@@ -19,8 +25,10 @@ module.exports = async (client, guild, user) => {
 					user.username + "#" + user.discriminator,
 					user.displayAvatarURL()
 				)
-				.setFooter(user)
-				.setTimestamp(Date.now())
+				.setFooter(user.toString())
+				.setTimestamp(Date.now())]
+		}
+
 		)
 		.catch((err2) =>
 			console.log(`[event:guildBanAdd.js] Channel ${chan} non trouvé`)

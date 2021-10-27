@@ -5,7 +5,7 @@
 ### Instructions Windows
 
 * Installer Git (<https://git-scm.com/downloads/>)
-* Installer Node.js (<https://nodejs.org/en/download/>)
+* Installer Node.js <u>**16.6.0** ou plus récent</u> (<https://nodejs.org/en/download/>)
 * Faire les manipulations de la section ["Création d'une application de tests Discord"](#création-dune-application-de-tests-discord)
 * Faire les manipulations de la section ["Installation locale"](#installation-locale)
 * Aller dans le projet et faire la commande ``node .``
