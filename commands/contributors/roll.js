@@ -3,52 +3,56 @@
  * Contributor: Timothy Landry
  * Description: Function that roll dices.
  */
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const fs = require("fs");
 
-exports.run = (client, message, args) => {
-	var fs = require("fs");
-	let input = "help";
-	let namef = "";
-	let output; // Output string
-	var regex = /\dd\d/; // Standard format regex
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('roll')
+		.addStringOption(option=>option
+			.setName("number")
+			.setDescription("Nombre de dés à lancer")
+			.setRequired(true))
+		.addStringOption(option=>option
+			.setName("type")
+			.setDescription("Type de dé à lancer ex. 6 pour 6 faces")
+			.setRequired(true))
+		.setDescription("Permet de rouller un nombre de dés du type spécifé (ex. 1d6, 3d10). 1d6 par défaut"),
+	async execute(interaction) {
+		let namef = "";
+		let output; // Output string
+		let diceNum = parseInt(interaction.options.get("number",true).value)
+		let diceType = parseInt(interaction.options.get("type",true).value)
 
-	if (args.length != 0) {
-		input = args[0].toLowerCase(); // Command argument
-	}
-
-	// Gestion du input
-	if (input === "help") {
-		output = `Veuillez fournir le nombre et le type de dés que vous voulez rouler.\nPar exemple: 2d6 ou 3d10`;
-	} else if (regex.test(input)) {
-		let nb = input.split("d")[0]; // Number of dice
-		if (nb <= 100000) {
-			let type = input.split("d")[1]; // Dice type (ie: 20 for d20)
+		if (diceNum <= 100000) {
 			let rolls = ""; // Roll results
 			let total = 0; // Total int value of roll results
 
-			for (let i = 0; i < nb; ++i) {
-				let roll = Math.floor(Math.random() * type) + 1;
+			for (let i = 0; i < diceNum; ++i) {
+				let roll = Math.floor(Math.random() * diceType) + 1;
 
-				if (roll === 1 || roll == type) {
+				if (roll === 1 || roll == diceType) {
 					// __ markdown if minrolled or maxrolled
 					rolls += "__" + roll + "__";
 				} else {
 					rolls += roll;
 				}
 
-				if (i < nb - 1) {
+				if (i < diceNum - 1) {
 					rolls += " + ";
 				}
 				total += roll;
 			}
 			rolls += " -> " + total;
-			output = rolls;
-			if (output.length > 2000) {
-				namef = "roll" + args[0] + ".txt";
-				fs.writeFile(namef, output, function (err) {
+			output = { content: "Résultat: "+total+"\n"+rolls };
+			if (rolls.length > 2000) {
+				namef = "roll"+diceNum+"d"+diceType+".txt";
+				fs.writeFile(namef, rolls, function (err) {
 					if (err) throw err;
 					console.log("Saved!");
 				});
 				output = {
+					content:"Résultat: "+total,
 					files: [
 						{
 							attachment: namef,
@@ -58,17 +62,15 @@ exports.run = (client, message, args) => {
 				};
 			}
 		} else {
-			output = "Nombre de dé brassé trop élevé! max 100000";
+			output = { content: "Nombre de dé brassé trop élevé! max 100000"};
 		}
-	} else {
-		output = `Syntax incorrecte. Utilisez *roll help* pour plus d'informations.`;
+		interaction.reply(output).catch(console.error);
+		if(namef)
+			setTimeout(function () {
+				fs.unlink(namef, function (err) {
+					if (err) throw err;
+					console.log("File deleted!");
+				});
+			}, 10000);
 	}
-
-	message.channel.send({content:output}).catch(console.error);
-	setTimeout(function () {
-		fs.unlink(namef, function (err) {
-			if (err) throw err;
-			console.log("File deleted!");
-		});
-	}, 10000);
-};
+ };

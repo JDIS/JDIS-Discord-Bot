@@ -16,20 +16,21 @@ module.exports = (client, member) => {
 	const chan = "server-logs";
 	client.channels.cache
 		.find((channel) => channel.name === chan)
-		.send(
-			new Discord.MessageEmbed()
-				.setTitle("Member left the server")
-				.setColor(0xffff00)
-				.setDescription(
-					"Le membre " + member.user.username + " a quitter le serveur"
-				)
-				.setAuthor(
-					member.user.username + "#" + member.user.discriminator,
-					member.user.displayAvatarURL()
-				)
-				.setFooter(member.user)
-				.setTimestamp(Date.now())
-		)
+		.send({
+			embeds: [
+				new Discord.MessageEmbed()
+					.setTitle("Member left the server")
+					.setColor(0xffff00)
+					.setDescription(
+						"Le membre " + member.user.username + " a quitter le serveur"
+					)
+					.setAuthor(
+						member.user.username + "#" + member.user.discriminator,
+						member.user.displayAvatarURL()
+					)
+					.setFooter(member.user.toString())
+					.setTimestamp(Date.now())]
+		})
 		.catch((err2) =>
 			console.log(`[event:guildMemberRemove.js] Channel ${chan} non trouvé`)
 		);

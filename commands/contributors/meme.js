@@ -1,15 +1,22 @@
 const Discord = require('discord.js');
-const randomPuppy = require('random-puppy');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-exports.run = async (client, message, args) => {
-    const subReddits = ["memes", "wholesomememes", "dankmemes", "memes_of_the_dank", "programmerhumor", "gamingmemes"]
-    const random = subReddits[Math.floor(Math.random() * subReddits.length)]
-    const image = await randomPuppy(random);
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('meme')
+        .setDescription("Send a random meme from subredits"),
+    async execute(interaction) {
+        const randomPuppy = require('random-puppy');
+        const subReddits = ["memes", "wholesomememes", "dankmemes", "memes_of_the_dank", "programmerhumor", "gamingmemes"]
+        const random = subReddits[Math.floor(Math.random() * subReddits.length)]
 
-    const embed = new Discord.MessageEmbed()
-    .setImage(image)
-    .setTitle(`From /r/${random}`)
-    .setURL(`http://reddit.com/r/${random}`)
+        image = await randomPuppy(random);
 
-    message.channel.send({embeds:[embed]});
-}
+        const embed = new Discord.MessageEmbed()
+            .setImage(image)
+            .setTitle(`From /r/${random}`)
+            .setURL(`http://reddit.com/r/${random}`)
+
+        interaction.reply({ embeds: [embed] });
+    }
+};
