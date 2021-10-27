@@ -4,20 +4,27 @@
 
 ### Instructions Windows
 
-* Installer Git (<https://git-scm.com/downloads/>)
-* Installer Node.js (<https://nodejs.org/en/download/>)
-* Faire les manipulations de la section ["Création d'une application de tests Discord"](#création-dune-application-de-tests-discord)
-* Faire les manipulations de la section ["Installation locale"](#installation-locale)
-* Aller dans le projet et faire la commande ``node .``
-* Une fois que le bot a démarré, aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
+- Installer Git (<https://git-scm.com/downloads/>)
+- Installer Node.js (<https://nodejs.org/en/download/>)
+- Faire les manipulations de la section ["Création d'une application de tests Discord"](#création-dune-application-de-tests-discord)
+- Faire les manipulations de la section ["Installation locale"](#installation-locale)
+- Aller dans le projet et faire la commande `node .`
+- Une fois que le bot a démarré, aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
 
 ### Instructions MacOS
-* Installer Homebrew (<https://docs.brew.sh/Installation>)
-* Installer Git (<https://git-scm.com/downloads/>)
+
+- Installer Git (<https://git-scm.com/download/mac>)
+- Installer Node.js (<https://nodejs.org/en/download/>)
+- Faire les manipulations de la section ["Création d'une application de tests Discord"] et assurez-vous d'effectuer les commandes avec `sudo`.(#création-dune-application-de-tests-discord)
+- Faire les manipulations de la section ["Installation locale"](#installation-locale)
+- Aller dans le projet et faire la commande `node .`
+- Une fois que le bot a démarré, aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
+
+* Installer Git (<https://git-scm.com/download/mac>)
 * Installer Node.js (<https://nodejs.org/en/download/>)
-* Faire les manipulations de la section ["Création d'une application de tests Discord"] et assurer vous d'effectuer les commandes avec ``sudo``.(#création-dune-application-de-tests-discord)
+* Faire les manipulations de la section ["Création d'une application de tests Discord"] et assurer vous d'effectuer les commandes avec `sudo`.(#création-dune-application-de-tests-discord)
 * Faire les manipulations de la section ["Installation locale"](#installation-locale)
-* Aller dans le projet et faire la commande ``node .``
+* Aller dans le projet et faire la commande `node .`
 * Une fois que le bot a démarré, aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
 
 ### Instructions Linux
@@ -42,7 +49,7 @@ Voici les étapes à suivre:
 1. Créer une copie ("fork") du répertoire JDIS.
 2. Aller dans le dossier où vous voulez cloner le projet
 3. Faire la commande "git clone <lien du projet cloné>"
-4. Faire un ``npm install`` à la racine du projet pour installer les dépendences.
+4. Faire un `npm install` à la racine du projet pour installer les dépendences.
 5. Créer le fichier config.json à la racine du projet avec la structure suivante:
 
 ```json
@@ -57,18 +64,17 @@ Voici les étapes à suivre:
 
 ## Exemples de code
 
-Dans ces exemples, nous utilisons le module Discord.js. 
+Dans ces exemples, nous utilisons le module Discord.js.
 Vous pouvez trouver la documentation sur le site suivant: <https://discord.js.org/>
 
 ## Commandes de base
 
-Prenons la commande **ping**, définie dans le répertoire *examples* et analysons cette dernière.
+Prenons la commande **ping**, définie dans le répertoire _examples_ et analysons cette dernière.
 
 ```javascript
 exports.run = (client, message, args) => {
-  message.channel.send("pong!")
-    .catch(console.error);
-}
+  message.channel.send("pong!").catch(console.error);
+};
 ```
 
 Nous recevons un client, le message, et une liste d'arguments. Nous utilisons ensuite l'objet message que nous avons reçu pour récupérer le channel courant et envoyer un message sur ce dernier. Finalement, on laisse un catch pour s'assurer de capturer une erreur et l'afficher en console dans le cas d'un retour invalide de l'API. (Par exemple channel.send() qui devient deprecated après une mise-à-jour.)
@@ -78,13 +84,21 @@ Nous recevons un client, le message, et une liste d'arguments. Nous utilisons en
 Certaines commandes vont demandées l'utilisation de permissions spécifiques, voici donc un exemple de safety net.
 
 ```javascript
-if (!message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES")) 
-{
-  message.channel.send("Sorry, you don't have the permission to execute the command \"" + message.content + "\"");
+if (!message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES")) {
+  message.channel.send(
+    "Sorry, you don't have the permission to execute the command \"" +
+      message.content +
+      '"'
+  );
   return;
-} 
-else if (!message.channel.permissionsFor(client.user).has("MANAGE_MESSAGES")) {
-  message.channel.send("Sorry, I don't have the permission to execute the command \"" + message.content + "\"");
+} else if (
+  !message.channel.permissionsFor(client.user).has("MANAGE_MESSAGES")
+) {
+  message.channel.send(
+    "Sorry, I don't have the permission to execute the command \"" +
+      message.content +
+      '"'
+  );
   return;
 }
 ```
@@ -94,14 +108,17 @@ else if (!message.channel.permissionsFor(client.user).has("MANAGE_MESSAGES")) {
 Dans certains cas, vous allez devoir générer de faux événements pour tester votre code, voici un exemple simple sur comment faire.
 
 ```javascript
-client.emit('guildMemberAdd', member);
+client.emit("guildMemberAdd", member);
 ```
 
 Voici également une solution facile pour trouver l'objet membre de l'utilisateur qui a effectué la commande de test.
 
 ```javascript
-const member = message.channel.members.filter(user => user.id === message.author.id);
+const member = message.channel.members.filter(
+  (user) => user.id === message.author.id
+);
 ```
 
 ---
+
 Mis-à-jour le 11/10/2021
