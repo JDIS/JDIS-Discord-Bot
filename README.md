@@ -12,6 +12,13 @@
 * Une fois que le bot a démarré, aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
 
 ### Instructions MacOS
+* Installer Homebrew (<https://docs.brew.sh/Installation>)
+* Installer Git (<https://git-scm.com/downloads/>)
+* Installer Node.js (<https://nodejs.org/en/download/>)
+* Faire les manipulations de la section ["Création d'une application de tests Discord"] et assurer vous d'effectuer les commandes avec ``sudo``.(#création-dune-application-de-tests-discord)
+* Faire les manipulations de la section ["Installation locale"](#installation-locale)
+* Aller dans le projet et faire la commande ``node .``
+* Une fois que le bot a démarré, aller dans Discord et écrire "!ping" au bot et il devrait vous répondre par "pong!"
 
 ### Instructions Linux
 
